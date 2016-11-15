@@ -4,7 +4,16 @@ function addItem(){
   var item = document.createElement("li");
   var itemName = document.createTextNode(input);
   item.appendChild(itemName);
+  var btnClose = document.createElement("button");
+  btnClose.classList.add("btn");
+  btnClose.classList.add("btn-danger");
+  btnClose.classList.add("btn-xs");
+  var iconClose = document.createElement("span");
+  iconClose.classList.add("glyphicon");
+  iconClose.classList.add("glyphicon-remove");
+  btnClose.appendChild(iconClose);
   list.appendChild(item);
+  list.appendChild(btnClose);
   document.getElementById("newItem").value = "";
 }
 //courtesy of w3schools, from: http://www.w3schools.com/js/js_cookies.asp

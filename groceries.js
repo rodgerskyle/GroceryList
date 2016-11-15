@@ -12,9 +12,15 @@ function addItem(){
   iconClose.classList.add("glyphicon");
   iconClose.classList.add("glyphicon-remove");
   btnClose.appendChild(iconClose);
+  btnClose.addEventListener("click", removeParentListItem);
   list.appendChild(item);
   list.appendChild(btnClose);
   document.getElementById("newItem").value = "";
+}
+function removeParentListItem(){
+  var mom = this.parentNode;
+  var grandma = mom.parentNode;
+  grandma.removeChild(mom);
 }
 //courtesy of w3schools, from: http://www.w3schools.com/js/js_cookies.asp
 function setCookie(cname, cvalue, exdays) {

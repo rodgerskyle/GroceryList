@@ -1,21 +1,28 @@
-function addItem(){
-  var input = document.getElementById("newItem").value;
-  var list = listDisplay;
-  var item = document.createElement("li");
-  var itemName = document.createTextNode(input);
-  item.appendChild(itemName);
-  var btnClose = document.createElement("button");
-  btnClose.classList.add("btn");
-  btnClose.classList.add("btn-danger");
-  btnClose.classList.add("btn-xs");
-  var iconClose = document.createElement("span");
-  iconClose.classList.add("glyphicon");
-  iconClose.classList.add("glyphicon-remove");
-  btnClose.appendChild(iconClose);
-  btnClose.addEventListener("click", removeParentListItem);
-  list.appendChild(item);
-  list.appendChild(btnClose);
-  document.getElementById("newItem").value = "";
+var myList = [];
+  function addItem(){
+    var input = document.getElementById("newItem").value;
+    var index = myList.indexOf(input);
+    if (index == -1){
+    myList.push(input);
+    console.log(myList);
+    console.log(index);
+    var list = listDisplay;
+    var item = document.createElement("li");
+    var itemName = document.createTextNode(input);
+    item.appendChild(itemName);
+    var btnClose = document.createElement("button");
+    btnClose.classList.add("btn");
+    btnClose.classList.add("btn-danger");
+    btnClose.classList.add("btn-xs");
+    var iconClose = document.createElement("span");
+    iconClose.classList.add("glyphicon");
+    iconClose.classList.add("glyphicon-remove");
+    btnClose.appendChild(iconClose);
+    btnClose.addEventListener("click", removeParentListItem);
+    list.appendChild(item);
+    list.appendChild(btnClose);
+    document.getElementById("newItem").value = "";
+  }
 }
 function removeParentListItem(){
   var mom = this.parentNode;

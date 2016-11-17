@@ -19,15 +19,19 @@ var myList = [];
     iconClose.classList.add("glyphicon-remove");
     btnClose.appendChild(iconClose);
     btnClose.addEventListener("click", removeParentListItem);
+    item.appendChild(btnClose);
     list.appendChild(item);
-    list.appendChild(btnClose);
     document.getElementById("newItem").value = "";
   }
 }
 function removeParentListItem(){
   var mom = this.parentNode;
   var grandma = mom.parentNode;
+  var itemRemove = mom.firstChild.textContent;
+  var itemIndex = myList.indexOf(itemRemove);
+  myList.splice(itemIndex,1);
   grandma.removeChild(mom);
+  console.log(myList);
 }
 //courtesy of w3schools, from: http://www.w3schools.com/js/js_cookies.asp
 function setCookie(cname, cvalue, exdays) {

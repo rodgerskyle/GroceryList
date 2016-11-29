@@ -33,6 +33,14 @@ function removeParentListItem(){
   grandma.removeChild(mom);
   console.log(myList);
 }
+function saveList(){
+  var listString = myList.toString();
+  setCookie ("list", listString, 1);
+}
+function clearList(){
+  document.getElementById("listDisplay").innerHTML = "";
+  myList=[];
+}
 //courtesy of w3schools, from: http://www.w3schools.com/js/js_cookies.asp
 function setCookie(cname, cvalue, exdays) {
     var d = new Date();
